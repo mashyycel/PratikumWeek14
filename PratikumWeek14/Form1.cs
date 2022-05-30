@@ -38,7 +38,7 @@ namespace PratikumWeek14
           
 
 
-            sqlQuery = " select match_date,if(m.team_home = t.team_id,'HOME',if(m.team_away = t.team_id,'AWAY',0)) AS 'home/away', concat(goal_home, ' - ', goal_away) as 'Score' from `match` m, team t where m.team_home = t.team_id and t.team_name = '" + lbl_teamName.Text + "'; ";
+            sqlQuery = " select match_date,if(m.team_home = t.team_id,'HOME',if(m.team_away = t.team_id,'AWAY',0)) AS 'home/away', concat(goal_home, ' - ', goal_away) as 'Score' from `match` m, team t where m.team_home = t.team_id and t.team_name = '" + lbl_teamName.Text + "' order by 1 desc limit 5; ";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtMatch);
